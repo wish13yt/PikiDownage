@@ -1,14 +1,29 @@
 <button onclick="isDown()">Check</button>
-<p id="changeText">Click the button above first!</p>
+<div id="div1">
+
+</div>
+<div id="div2">
+    
+</div>
 <script>
 function isDown() {
 fetch("https://pikidiary.lol/api/posts/jax")
   .then((response) => {
     console.log("response.status =", response.status); // response.status = 200
     if (response.status === 200) {
-        document.getElementById(changeText).innerHTML = Up
+        const para = document.createElement("p");
+const node = document.createTextNode("Pikidiary is up! :D");
+para.appendChild(node);
+
+const element = document.getElementById("div1");
+element.appendChild(para);
     } else {
-        document.getElementById(id).innerHTML = Down
+        const para2 = document.createElement("p");
+const node2 = document.createTextNode("Pikidiary is down :(");
+para.appendChild(node2);
+
+const element = document.getElementById("div1");
+element.appendChild(para2);
     }
     return response.blob();
   }
