@@ -1,9 +1,15 @@
 <button onclick="isDown()">Check</button>
+<p id="changeText">Click the button above first!</p>
 <script>
 function isDown() {
 fetch("https://pikidiary.lol/api/posts/jax")
   .then((response) => {
     console.log("response.status =", response.status); // response.status = 200
+    if (response.status === 200) {
+        document.getElementById(changeText).innerHTML = Up
+    } else {
+        document.getElementById(id).innerHTML = Down
+    }
     return response.blob();
   }
  )
