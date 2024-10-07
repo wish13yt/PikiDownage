@@ -9,23 +9,11 @@ function isDown() {
 fetch("https://pikidiary.lol/api/posts/jax")
   .then((response) => {
     console.log("response.status =", response.status); // response.status = 200
-    if (response.status === 200) {
-        const para = document.createElement("p");
-const node = document.createTextNode("Pikidiary is up! :D");
-para.appendChild(node);
-
-const element = document.getElementById("div1");
-element.appendChild(para);
+    if (response.status === 404) {
+      div1.innerHTML += "Pikidiary is down! :("
     } else {
-        const para2 = document.createElement("p");
-const node2 = document.createTextNode("Pikidiary is down :(");
-para2.appendChild(node2);
-
-const element = document.getElementById("div1");
-element.appendChild(para2);
-      // this isnt doing anything rn but its not letting me delete it or it will break!!!!! grah
+      div1.innerHTML += "Pikidiary is up!"
     }
-    return response.blob();
   }
  )
 }
